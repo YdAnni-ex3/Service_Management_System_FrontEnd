@@ -96,6 +96,10 @@ export default class updateCountryDetails extends Component {
 
                                     <div className = "form-group">
                                     <label>Country ID </label>
+                                    {Object.keys(error).map((key) =>{
+                                        return <div style = {{color:"red"}}key = {key}>
+                                            {error[key]}</div>
+                                    })}
                                     <input type = "int" placeholder="Country ID" name="id" className="form-control" 
                                     value={this.state.id} onChange={this.changeId}/>
                                     </div>
@@ -125,14 +129,7 @@ export default class updateCountryDetails extends Component {
 
                                         <button className="btn btn-success" onClick={this.updateCountryDetails}>Update Details</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
-                                    {Object.keys(error).map((key) =>{
-                                        return <div style = {{color:"red"}}key = {key}>
-                                            <div>
-                                            <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>New Button</button>
-                                                
-                                            </div>
-                                            {error[key]}</div>
-                                    })} 
+                                     
                                 </form>
                             </div>
                         </div>
