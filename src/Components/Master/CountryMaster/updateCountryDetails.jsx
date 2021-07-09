@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { useAlert } from 'react-alert';
 import CountryMasterService from '../../../ServiceComponent/Master/CountryMasterService';
 
 export default class updateCountryDetails extends Component {
@@ -22,6 +21,7 @@ export default class updateCountryDetails extends Component {
         this.changeCountry_description = this.changeCountry_description.bind(this);
         this.changeActive_status = this.changeActive_status.bind(this);
         this.updateCountryDetails = this.updateCountryDetails.bind(this);
+        this.updateCountryDetail_error = this.updateCountryDetail_error.bind(this);
         this.cancel = this.cancel.bind(this);
     }
 
@@ -44,7 +44,6 @@ export default class updateCountryDetails extends Component {
         this.setState({active_status: event.target.value});
     }
     updateCountryDetails = (e) => {
-        e.preventDefault();
         let countryDetails = {id:this.state.id, country_name:this.state.country_name,country_code:this.state.country_code,country_description:this.state.country_description,active_status:this.state.active_status};
         console.log((countryDetails));
         let isValid =  true;
@@ -56,13 +55,19 @@ export default class updateCountryDetails extends Component {
                 
                 error.IDerror = "Country with given ID does Not Exist";
                 isValid = false;
-                this.setState({error});
+                
             }
-
+            this.setState({error});
+            return isValid;
            //this.props.history.push('/');
         });
+       
     }
 
+    updateCountryDetail_error = (e) =>{
+        e.preventDefault();
+        const isValid = this.updateCountryDetails();
+    }
     componentDidCatch()
     {
         CountryMasterService.getCountryById(this.state.id).then(res =>{
@@ -127,7 +132,7 @@ export default class updateCountryDetails extends Component {
                                     value={this.state.active_status} onChange={this.changeActive_status}/>
                                     </div>
 
-                                        <button className="btn btn-success" onClick={this.updateCountryDetails}>Update Details</button>
+                                        <button className="btn btn-success" onClick={this.updateCountryDetail_error}>Update Details</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                      
                                 </form>

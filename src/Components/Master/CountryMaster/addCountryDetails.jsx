@@ -39,11 +39,14 @@ export default class addCountryDetails extends Component {
     }
     saveCountryDetails = (e) => {
         e.preventDefault();
-        let countryDetails = {country_name:this.state.country_name,country_code:this.state.country_code,country_description:this.state.country_description,active_status:this.state.active_status};
+        let countryDetails = {country_id:this.state.id,country_name:this.state.country_name,country_code:this.state.country_code,country_description:this.state.country_description,active_status:this.state.active_status};
         console.log('User => ' + JSON.stringify(countryDetails));
         CountryMasterService.addCountryDetail(countryDetails).then(res => {
            this.props.history.push('/');
+            countryDetails = res.data;
         });
+        
+        this.setState({countryDetails});
     }
     cancel(){
         this.props.history.push('/');
@@ -87,6 +90,47 @@ export default class addCountryDetails extends Component {
                                         <button className="btn btn-success" onClick={this.saveCountryDetails}>Save Details</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                 </form>
+
+
+                                <br />
+                                {
+                                    <div className = "row">
+                                    <table className = "table table-striped table-bordered" hidden = "">
+                                        <thead>
+                                            <tr>
+
+                                                <th>Country Name</th>
+                                                <th>Country Code</th>
+                                                <th>Country Description</th>
+                                                <th>Active Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                               
+                                                    <tr key = {this.state.countryDetails.id}>
+                                                       
+                                                        <td>{this.state.countryDetails.country_name}</td>
+                                                        
+                                                        <td>{this.state.countryDetails.country_code}</td>
+                                                        <td>{this.state.countryDetails.country_description}</td>
+                                                        <td>{this.state.countryDetails.active_status}</td>
+                                                    </tr>
+                                                
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                                }
+                                { 
+                                
+                                    <div style = {{color:"red"}}>{this.state.countryDetails.country_name}</div>}
+                                    {<div style = {{color:"red"}}>{this.state.countryDetails.country_name}</div>}
+                                    {<div style = {{color:"red"}}>{this.state.countryDetails.country_name}</div>}
+                                    {<div style = {{color:"red"}}>{this.state.countryDetails.country_name}</div>}
+                                    {<div style = {{color:"red"}}>{this.state.countryDetails.country_name}</div>}
+                                            
+                                
                             </div>
                         </div>
                     

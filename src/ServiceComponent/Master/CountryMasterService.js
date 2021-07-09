@@ -26,6 +26,11 @@ class CountryMasterService{
     {
         return axios.get(showCountryDetails_URL+'/'+id);
     }
+
+    deleteCountryDetails_(country)
+    {
+        return axios.delete(deleteCountryDetails_URL,{ datasource: country });
+    }
    
 }
 export default new CountryMasterService();
