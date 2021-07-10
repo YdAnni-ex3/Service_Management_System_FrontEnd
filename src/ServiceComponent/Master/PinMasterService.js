@@ -7,7 +7,7 @@ const deletePinDetails_URL = "/deletePinDetails";
 class PinMasterService{
 
    
-    addPinDetail(country)
+    addPinDetail(pin)
     {
         return axios.post(addPinDetails_URL,pin);
     }
@@ -17,7 +17,7 @@ class PinMasterService{
         return axios.get(showPinDetails_URL);
     }
 
-    updatePinDetail(country)
+    updatePinDetail(pin)
     {
         return axios.put(updatePinDetails_URL,pin);
     }
@@ -27,7 +27,7 @@ class PinMasterService{
         return axios.get(showPinDetails_URL+'/'+id);
     }
 
-    deletePinDetails_(country)
+    deletePinDetails_(pin)
     {
         return axios.delete(deletePinDetails_URL,{ datasource: pin});
     }
