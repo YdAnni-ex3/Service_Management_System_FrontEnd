@@ -14,6 +14,7 @@ export default class deleteCountryDetails extends Component {
             country:[],
             error:{}
         }
+        this.change_page = this.change_page.bind(this);
         this.changeId = this.changeId.bind(this);
         this.deleteCountryDetail = this.deleteCountryDetail.bind(this);
         this.deleteCountryDetails_error = this.deleteCountryDetails_error.bind(this);
@@ -61,7 +62,14 @@ export default class deleteCountryDetails extends Component {
     deleteCountryDetails_error = (e) =>{
         e.preventDefault();
         const isValid = this.deleteCountryDetail();
-       
+        if(isValid)
+        {
+           this.change_page();
+        }
+    }
+
+    change_page() {
+        this.props.history.push('/');
     }
     cancel(){
         this.props.history.push('/');

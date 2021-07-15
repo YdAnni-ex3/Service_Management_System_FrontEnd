@@ -29,7 +29,7 @@ class CountryMasterService{
 
     deleteCountryDetails_(country)
     {
-        return axios.delete(deleteCountryDetails_URL,{ datasource: country });
+        return axios.delete(deleteCountryDetails_URL,{ data: country });
     }
    
 }

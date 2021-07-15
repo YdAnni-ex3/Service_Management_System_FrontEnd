@@ -9,8 +9,11 @@ export default class showCountryDetails extends Component {
             country:[]
         }
         this.goToHomePage = this.goToHomePage.bind(this);
+        
+        this.editCountryDetails = this.editCountryDetails.bind(this);
     }
 
+   
     componentDidMount()
     {
         CountryMasterService.showCountryDetail().then(res =>{
@@ -21,12 +24,24 @@ export default class showCountryDetails extends Component {
         });
     }
 
+    editCountryDetails(id)
+    {
+        this.props.history.push(`/updateCountryDetails/${id}`);
+    }
+
+   
+
     goToHomePage(){
         this.props.history.push("/");
     }
     render() {
+        <div style = {{backgroundColor : "#ACFFAD"}}></div>
         return (
             <div>
+
+
+                
+                
                  <div>
                 <h2 className = "text-center">Country Master List</h2>
                 
@@ -40,6 +55,7 @@ export default class showCountryDetails extends Component {
                                 <th>Country Code</th>
                                 <th>Country Description</th>
                                 <th>Active Status</th>
+                                <th>Update Country Details</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -49,10 +65,12 @@ export default class showCountryDetails extends Component {
                                     <tr key = {country.id}>
                                         <td>{country.id}</td>
                                         <td>{country.country_name}</td>
-                                        
                                         <td>{country.country_code}</td>
                                         <td>{country.country_description}</td>
                                         <td>{country.active_status.toString()}</td>
+                                        <td>
+                                        <button className="btn btn-success" onClick = {() => this.editCountryDetails(country.id)}>Update Details</button>
+                                        </td>
                                     </tr>
                                 )
                             }
@@ -68,8 +86,7 @@ export default class showCountryDetails extends Component {
                     
                 </div>
                 </div>
-            </div>
-            </div>
+            
         )
     }
 }

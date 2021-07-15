@@ -21,8 +21,8 @@ function App() {
           <Route path = "/" exact component = {Page1}></Route>
           <Route path = "/addCountryDetails"  component = {addCountryDetails}></Route>
           <Route path = "/showCountryDetails"  component = {showCountryDetails}></Route>
-          <Route path = "/updateCountryDetails"  component = {updateCountryDetails}></Route>
-          <Route path = "/deleteCountryDetails"  component = {deleteCountryDetails}></Route>
+          <Route path = "/updateCountryDetails/:id"  component = {updateCountryDetails}></Route>
+          {/* <Route path = "/deleteCountryDetails"  component = {deleteCountryDetails}></Route> */}
           
         </Switch>
       </div>
