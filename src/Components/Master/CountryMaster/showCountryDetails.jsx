@@ -38,11 +38,7 @@ export default class showCountryDetails extends Component {
         <div style = {{backgroundColor : "#ACFFAD"}}></div>
         return (
             <div>
-
-
                 
-                
-                 <div>
                 <h2 className = "text-center">Country Master List</h2>
                 
                 
@@ -86,7 +82,7 @@ export default class showCountryDetails extends Component {
                     
                 </div>
                 </div>
-            
+            </div>
         )
     }
 }
