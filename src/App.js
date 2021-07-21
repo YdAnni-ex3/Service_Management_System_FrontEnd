@@ -10,15 +10,17 @@ import updateCountryDetails from './Components/Master/CountryMaster/updateCountr
 import deleteCountryDetails from './Components/Master/CountryMaster/deleteCountryDetails';
 
 
+
 function App() {
   return (
     <div className="App">
         <Router>
-      <div className = "container">
+      <div>
       <div>
       <HeaderComponent/>
         <Switch>
           <Route path = "/" exact component = {Page1}></Route>
+          
           <Route path = "/addCountryDetails"  component = {addCountryDetails}></Route>
           <Route path = "/showCountryDetails"  component = {showCountryDetails}></Route>
           <Route path = "/updateCountryDetails/:id"  component = {updateCountryDetails}></Route>

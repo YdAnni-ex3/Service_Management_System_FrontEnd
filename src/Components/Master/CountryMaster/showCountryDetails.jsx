@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import CountryMasterService from '../../../ServiceComponent/Master/CountryMasterService';
-
+import {DropdownButton,Dropdown} from 'react-bootstrap' 
 
 export default class showCountryDetails extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ export default class showCountryDetails extends Component {
             country:[]
         }
         this.goToHomePage = this.goToHomePage.bind(this);
-        
+        this.fucn = this.fucn.bind(this);
         this.editCountryDetails = this.editCountryDetails.bind(this);
     }
 
@@ -30,7 +30,14 @@ export default class showCountryDetails extends Component {
     }
 
    
-
+    fucn(e)
+    {
+        CountryMasterService.getCountryById(e).then();
+        this.state.cunt = e;
+        console.log(this.state.cunt);
+        this.props.history.push(`/updateCountryDetails/${e}`);
+        
+    }
     goToHomePage(){
         this.props.history.push("/");
     }
@@ -38,10 +45,14 @@ export default class showCountryDetails extends Component {
         <div style = {{backgroundColor : "#ACFFAD"}}></div>
         return (
             <div>
-                
-                <h2 className = "text-center">Country Master List</h2>
-                
-                
+                {/* <DropdownButton id = "dropdown-basic-button" title = "Select Country">
+                    {   
+                        this.state.country.map(data =>
+                        (
+                            <Dropdown.Item onClick = {() => this.fucn(data.id)}>{data.country_name}</Dropdown.Item>
+                        ))}
+                </DropdownButton>      */}
+                <h2 className = "text-center">Country Master List</h2> 
                 <div className = "row">
                     <table className = "table table-striped table-bordered">
                         <thead>
@@ -75,12 +86,12 @@ export default class showCountryDetails extends Component {
                 </div>
 
                 <div className = "text-center">
-                <div className = "btn-group-vertical">
-                    <button className = "btn btn-primary" onClick = {this.goToHomePage}>
-                       Home Page
-                    </button>
-                    
-                </div>
+                    <div className = "btn-group-vertical">
+                        <button className = "btn btn-primary" onClick = {this.goToHomePage}>
+                        Home Page
+                        </button>  
+                    </div>
+                    <div>{console.log(this.count)}</div>
                 </div>
             </div>
         )
