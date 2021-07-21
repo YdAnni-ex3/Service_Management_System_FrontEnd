@@ -51,7 +51,7 @@ export default class updateCountryDetails extends Component {
             console.log(res.data);
            
         });
-       
+       this.props.history.push('/showCountryDetails');
     }
 
    
