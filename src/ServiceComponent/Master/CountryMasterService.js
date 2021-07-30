@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const addCountryDetails_URL = "/addCountryDetails";
-const showCountryDetails_URL = "/showAllCountry";
-const updateCountryDetails_URL = "/updateCountryDetails";
-const deleteCountryDetails_URL = "/deleteCountryDetails";
+const addCountryDetails_URL = "/countryMaster/addCountryDetails";
+const showCountryDetails_URL = "/countryMaster/showAllCountry";
+const updateCountryDetails_URL = "/countryMaster/updateCountryDetails";
+const deleteCountryDetails_URL = "/countryMaster/deleteCountryDetails";
 class CountryMasterService{
 
    

@@ -7,6 +7,8 @@ export default class Page1 extends Component {
         };
         this.addCountryDetails = this.addCountryDetails.bind(this);
         this.showCountryDetails = this.showCountryDetails.bind(this);
+        
+        this.showMakeDetails = this.showMakeDetails.bind(this);
     }
 
     addCountryDetails = (e) =>
@@ -17,6 +19,10 @@ export default class Page1 extends Component {
     showCountryDetails = (e) =>
     {
         this.props.history.push('/showCountryDetails');
+    }
+    showMakeDetails = (e) =>
+    {
+        this.props.history.push('/showAllMake');
     }
 
 
@@ -29,6 +35,7 @@ export default class Page1 extends Component {
                     <div class="btn-group" role="group" aria-label="Basic example">
                         <button type="button" class="btn btn-secondary" onClick = {this.addCountryDetails}>Add Country Details</button>
                         <button type="button" class="btn btn-secondary" onClick = {this.showCountryDetails}>Show All Country Details</button>
+                        <button type="button" class="btn btn-secondary" onClick = {this.showMakeDetails}>Show Make Details</button>
                     </div>
 
                 </div>

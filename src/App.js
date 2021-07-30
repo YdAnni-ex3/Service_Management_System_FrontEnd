@@ -8,6 +8,10 @@ import addCountryDetails from './Components/Master/CountryMaster/addCountryDetai
 import showCountryDetails from './Components/Master/CountryMaster/showCountryDetails';
 import updateCountryDetails from './Components/Master/CountryMaster/updateCountryDetails';
 import deleteCountryDetails from './Components/Master/CountryMaster/deleteCountryDetails';
+import showMakeDetails from './Components/Master/MakeMaster/showMakeDetails';
+import addMakeDetails from './Components/Master/MakeMaster/addMakeDetails';
+import updateMakeDetails from './Components/Master/MakeMaster/updateMakeDetails';
+
 
 
 
@@ -24,6 +28,10 @@ function App() {
           <Route path = "/addCountryDetails"  component = {addCountryDetails}></Route>
           <Route path = "/showCountryDetails"  component = {showCountryDetails}></Route>
           <Route path = "/updateCountryDetails/:id"  component = {updateCountryDetails}></Route>
+          <Route path = "/addMakeDetails"  component = {addMakeDetails}></Route>
+          <Route path = "/showAllMake"  component = {showMakeDetails}></Route>
+          <Route path = "/updateMakeDetails/:id"  component = {updateMakeDetails}></Route>
+          
           {/* <Route path = "/deleteCountryDetails"  component = {deleteCountryDetails}></Route> */}
           
         </Switch>

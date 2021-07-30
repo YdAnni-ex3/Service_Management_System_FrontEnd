@@ -2,7 +2,7 @@
   "name": "service_management_frontend",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:8080/serviceManagement/countryMaster",
+  "proxy": "http://localhost:8080/serviceManagement",
   "dependencies": {
     "@react-navigation/drawer": "^5.12.5",
     "@testing-library/jest-dom": "^5.14.1",
